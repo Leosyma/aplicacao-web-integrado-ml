@@ -11,12 +11,12 @@ warnings.filterwarnings('ignore')
 app = Flask(__name__)
 
 # Carrega o modelo e o padronizador
-modelo_carregado = pickle.load(open('dsa_modelo.pkl', 'rb'))
-modelo_dsa = modelo_carregado["model"]
+modelo_carregado = pickle.load(open('modelo.pkl', 'rb'))
+modelo = modelo_carregado["model"]
 country_mapping = modelo_carregado["country_mapping"]
 education_mapping = modelo_carregado["education_mapping"]
 devtype_mapping  = modelo_carregado['devtype_mapping']
-scaler_dsa = pickle.load(open('dsa_scaler.pkl', 'rb'))
+scaler = pickle.load(open('scaler.pkl', 'rb'))
 
 # Rota para a raiz
 @app.route('/')
@@ -42,10 +42,10 @@ def predict():
         return render_template("home.html", prediction_text="Verifique se todos os campos estão preenchidos.")
     
     # Aplica o padronizador
-    dados_padronizados = scaler_dsa.transform([list(data.values())])
+    dados_padronizados = scaler.transform([list(data.values())])
 
     # Previsão com o modelo
-    output = modelo_dsa.predict(dados_padronizados)[0]
+    output = modelo.predict(dados_padronizados)[0]
 
     # Formata a saída
     formatted_output = round(output, 2)

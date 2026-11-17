@@ -36,8 +36,8 @@ The project covers:
 ├── app.py              # Main Flask application
 ├── home.html           # Web page with the prediction form
 ├── styles.css          # CSS file for styling the web page
-├── dsa_modelo.pkl      # Trained Machine Learning model
-├── dsa_scaler.pkl      # Scaler used for preprocessing
+├── modelo.pkl      # Trained Machine Learning model
+├── scaler.pkl      # Scaler used for preprocessing
 ├── requirements.txt    # Project dependencies
 ├── LEIAME.txt          # Original execution instructions
 └── README.md           # Project documentation
@@ -76,13 +76,13 @@ The model uses the following input variables:
 Create a Conda virtual environment:
 
 ```bash
-conda create --name dsaengsoftp1 python=3.12
+conda create --name salario-web python=3.12
 ```
 
 Activate the environment:
 
 ```bash
-conda activate dsaengsoftp1
+conda activate salario-web
 ```
 
 Install `pip` and the project dependencies:
@@ -110,8 +110,8 @@ The prediction result is displayed directly on the page as an estimated annual s
 
 ## Notes
 
-* The trained model must be available as `dsa_modelo.pkl`.
-* The scaler must be available as `dsa_scaler.pkl`.
+* The trained model must be available as `modelo.pkl`.
+* The scaler must be available as `scaler.pkl`.
 * The application expects all form fields to be completed before making a prediction.
 * This project was developed for educational purposes and demonstrates the integration of Machine Learning models into web applications.
 
